@@ -10,21 +10,21 @@ def seconds_to_hms(total_seconds):
     # TODO (Part 1): return the time as a string "H:MM:SS"
     #   e.g. seconds_to_hms(3661) should return "1:01:01"
     hours = total_seconds // 3600
-    minutes = total_seconds 60
-    seconds = total_seconds
+    minutes = (total_seconds % 3600) // 60
+    seconds = total_seconds % 60
     return f"{hours}:{minutes:02d}:{seconds:02d}"
 
 
 def admission_price(age):
     # TODO (Part 2): return the ticket price (a number) for someone of this age
     if age < 5:
-        return 0
+        return 0, f" because you are, {age} years old"
     elif age >= 5 and age <= 12:
-        return 8
+        return 8, f"because you are, {age} years old"
     elif age >= 13 and age <= 64:
-        return 15
+        return 15, f"because you are, {age} years old"
     else:
-        return 12
+        return 12, f"because you are, {age} years old"
 
 
 def sum_multiples(limit):
@@ -49,10 +49,10 @@ def total_of_positives(numbers):
 def main():
     # Optional scratch space - use this to try your functions with sample values.
     # Uncomment a line and run `python lab02.py` to see the result.
-    # print(seconds_to_hms(3661))            # 1:01:01
-    # print(admission_price(10))             # 8
-    # print(sum_multiples(10))               # 23
-    # print(total_of_positives([1, -2, 3]))  # 4
+    print(seconds_to_hms(3661))            # 1:01:01
+    print(admission_price(10))             # 8
+    print(sum_multiples(10))               # 23
+    print(total_of_positives([1, -2, 3]))  # 4
 
 
 
